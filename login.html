@@ -1,0 +1,52 @@
+<html style="background-image: url('http://piq.codeus.net/static/media/userpics/piq_275802_400x400.png')">
+<input id="name" placeholder="Username">
+
+<br>
+<br>
+<input id="pass" type="password" placeholder="Pasword">
+<br>
+<button id="l">Login</button> <button id="s">Sign Up</button>
+<script src="jquery-3.1.1.js"></script>
+<script>
+$(document).ready(function() {
+document.getElementById("l").addEventListener("click", login);
+document.getElementById("s").addEventListener("click", signup);
+
+function login(evt) {
+var username = document.getElementById("name").value;
+var pasword = document.getElementById("pass").value;
+alert("Username: " + username + "\n" + "Pasword: " + pasword)
+
+}
+
+function signup(evt) {
+var username = document.getElementById("name").value;
+var pasword = document.getElementById("pass").value;
+var confirmpass = prompt("Confirm Password");
+if (confirmpass === pasword) {
+alert("Username: " + username + "\n" + "Pasword: " + pasword)
+}
+else {
+alert("Try Again")
+
+}
+
+
+}
+
+
+
+
+
+
+})
+
+
+
+
+
+
+
+</script>
+
+</html>
