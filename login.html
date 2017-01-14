@@ -1,4 +1,5 @@
 <html style="background-image: url('http://piq.codeus.net/static/media/userpics/piq_275802_400x400.png')">
+<h1>The Goomba Game</h1>
 <input id="name" placeholder="Username">
 
 <br>
@@ -12,10 +13,25 @@ $(document).ready(function() {
 document.getElementById("l").addEventListener("click", login);
 document.getElementById("s").addEventListener("click", signup);
 
+
 function login(evt) {
 var username = document.getElementById("name").value;
 var pasword = document.getElementById("pass").value;
-alert("Username: " + username + "\n" + "Pasword: " + pasword)
+$.ajax({
+url: "http://192.168.0.8:5000/login",
+contentType: "application/json",
+data: {"name":username, "password":pasword},
+method: "POST",
+success: function(data, status, jqXHR) {
+console.log(data)
+
+
+},
+error: function(jqXHR, status, error) {
+console.log(jqXHR.responseJSON);
+console.log(error)
+}
+})
 
 }
 
